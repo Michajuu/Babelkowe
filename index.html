@@ -27,7 +27,7 @@
 					<li>Algorytmy sortowania</a>
 					  <ul>
 						<li><a href="https://michajuu.github.io/Babelkowe/">Sortowanie bąbelkowe</a></li>
-						<li><a href="https://michajuu.github.io/Wybór/">Sortowanie przez wybór</a></li>
+						<li><a href="https://michajuu.github.io/Wybor/">Sortowanie przez wybór</a></li>
                         <li><a href="https://michajuu.github.io/Binarne/">Przeszukiwanie binarne</a></li>
                         <li><a href="https://michajuu.github.io/Liniowe/">Przeszukiwanie liniowe</a></li>
 					  </ul>
@@ -39,10 +39,34 @@
 		
 		
 		<div id="tekst">
-			<span class="tytul2">Sortowanie bąbelkowe</span>
+			<span class="tytul2">Sortowanie Bąbelkowe</span>
 			
 			<div class="przerwa"></div>
-		tekst
+            <h3>Definicja</h3>
+            Sortowanie bąbelkowe (ang. bubble sort) – prosta metoda sortowania o złożoności czasowej i pamięciowej.
+            Polega na porównywaniu dwóch kolejnych elementów i zamianie ich kolejności, jeżeli zaburza ona porządek, w jakim się sortuje tablicę. Sortowanie kończy się, gdy podczas kolejnego przejścia nie dokonano żadnej zmiany.<br>
+            <h3>Dowód matematyczny</h3>
+            Algorytm opiera się na zasadzie maksimum, tj. każda liczba jest mniejsza lub równa od liczby maksymalnej. Porównując kolejno liczby, można wyznaczyć największą z nich. Następnie ciąg częściowo posortowany (mający liczbę maksymalną) można skrócić o tę liczbę i ponowić szukanie maksimum, już bez elementów odrzuconych i tak długo, aż zostanie nam jeden element. Otrzymane kolejne maksima są coraz mniejsze, przez co ciąg jest uporządkowany.<br>
+            <h3>Złożoność obliczeniowa</h3>
+            Algorytm wykonuje n - 1 przejść, a w każdym przejściu wykonuje n - k porównań (gdzie k = 1,2...n - 1 to numer przejścia), przez co jego teoretyczna złożoność czasowa wynosi O(n2) W podstawowej wersji algorytmu nie można tego czasu skrócić, a każda permutacja powoduje, że algorytm jest wykonywany w czasie pesymistycznym.
+            <h3>Modyfikacje powodujące ulepszenie czasu</h3>
+            Algorytm można rozbudować tak, by czas optymistyczny był lepszy. Najłatwiejsze jest dodanie flagi informującej, czy w danej iteracji doszło do zmiany. Flaga jest zerowana na wejściu w przebiegu pętli, w przypadku natrafienia na zmianę jest podnoszona, a po wykonaniu przejścia sprawdzana. Jeśli nie było zmian, to sortowanie jest zakończone. Modyfikacja ta wprawdzie wydłuża czas wykonania jednego przejścia przez pętlę (gdyż trzeba wyzerować flagę, podnieść ją i sprawdzić), jednakże w wariancie optymistycznym (ciąg częściowo posortowany) może zaoszczędzić iteracji, przez co algorytm będzie działać szybciej.
+            <h3>Pseudokod</h3>
+            Pseudokod wersji podstawowej algorytmu dla tablicy o rozmiarze n (elementy tablicy są numerowane od 0 do n-1):
+
+            <code><br>
+            procedure bubbleSort( A : lista elementów do posortowania )<br>
+            &nbsp;n = liczba_elementów(A)<br>
+            &nbsp;do<br>
+            &nbsp;&nbsp;for (i = 0; i &#60; n-1; i++) do:<br>
+            &nbsp;&nbsp;&nbsp;if A[i] > A[i+1] then<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;swap(A[i], A[i+1])<br>
+            &nbsp;&nbsp;&nbsp;end if<br>
+            &nbsp;&nbsp;end for<br>
+            &nbsp;&nbsp;n = n-1<br>
+            &nbsp;while n > 1<br>
+            end procedure<br>
+            </code>
 		</div>	
 		
 		<div id="footer">
